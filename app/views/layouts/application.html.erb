@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>LibraryApp</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +12,31 @@
   </head>
 
   <body>
+    <body class="body">
+
+
+    <div class="header">
+      <div class="container">
+        <h1><%= link_to "Main", root_path %></h1>
+
+        <div class="nav">
+          
+          <% if current_user %>
+           <ul>
+             <li><%= current_user.email %></li>
+             <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+           </ul>
+          <% else %>
+           <ul>
+             <li><%= link_to "Login", 'login' %></li>
+             <li><%= link_to "Signup", 'signup' %></li>
+           </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     <%= yield %>
+    
   </body>
 </html>
