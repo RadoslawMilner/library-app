@@ -1,5 +1,21 @@
-<%= form_for(:session, url: login_path) do |form| %>
-  <%= form.email_field :email, :placeholder => "Your email" %>
-  <%= form.password_field :password_digest, :placeholder => "Password" %>
-  <%= form.submit "Log in" %>
-<% end %>
+<div class="login">
+  <div class="container">
+
+    <%= form_for(:session, url: login_path) do |form| %>
+
+      <div class="field">
+        <%= form.email_field :email, :placeholder => "Your email" %>
+      </div>
+
+      <div class="field">
+        <%= form.password_field :password_digest, :placeholder => "Password" %>
+      </div>
+      
+      <div class="actions">
+        <%= form.submit "Log in", class: "btn-submit" %>
+      </div>
+      
+    <% end %> 
+
+  </div>
+</div>

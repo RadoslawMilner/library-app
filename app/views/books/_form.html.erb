@@ -1,0 +1,33 @@
+<!-- <div class="new-book"> -->
+
+  <div class="container">
+
+    <%= form_with model: book do |form| %>
+
+    <div class="field">
+      <%= form.text_field :name, :placeholder => "Book's title" %>
+    </div>
+
+    </div class="field">
+      <%= form.text_field :author, :placeholder => "Book's author" %>
+    </div>
+
+    </div class="field">
+      <%= form.text_field :release_date, :placeholder => "Release date" %>
+    </div>
+
+    </div class="field">
+      <%= form.text_field :book_id, :placeholder => "Library book ID" %>
+    </div>
+
+    </div class="field">
+      <%= form.date_select :deadline_for_return, :placeholder => "Deadline for returning the book" %>
+    </div>
+
+    </div class="action">
+      <%= form.submit "Save" %>
+    </div>
+
+    <% end %>
+  </div>
+</div>

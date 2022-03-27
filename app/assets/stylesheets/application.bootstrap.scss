@@ -8,23 +8,6 @@ body {
     background-attachment: fixed;
 }
 
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-
 /*    HEADER    */
 
 .header {
@@ -67,7 +50,7 @@ body {
   transition: background 1s;
 }
 
-.nav ul li a:hover, .article a h2:hover, .btn a:hover, form input.btn-submit:hover {
+.nav ul li a:hover, .book a h2:hover, .btn a:hover, form input.btn-submit:hover {
   background: rgba(255,255,255,1);
   cursor: pointer;
   transition: background 1s;
@@ -77,22 +60,20 @@ body {
   margin: 0 20px;
 }
 
-/*    ARTICLES    */
+/*    BOOKS INDEX    */
 
-/*
-
-.article {
+.book {
   border-bottom: 1px solid #282828;
   margin: 0 50px 50px;
   padding: 0 0 50px;
   width: 600px;
 }
 
-.article a {
+.book a {
   text-decoration: none;
 }
 
-.article a h2 {
+.book a h2 {
   background: rgba(255,255,255,0.25);
   color: #282828;
   display: inline;
@@ -102,7 +83,7 @@ body {
   transition: background 1s;
 }
 
-.article h2 {
+.book h2 {
   color: #282828;
   font-size: 40px;
   line-height: 50px;
@@ -114,7 +95,7 @@ body {
   margin: 10px 0;
 }
 
-.article_content {
+.book_content {
   font-weight: 300;
   line-height: 24px;
 }
@@ -134,9 +115,24 @@ body {
   color: #fff;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: coral;
+}
+
 /*      FORMS     */
 
-.login .container, .signup .container, .update-article .container {
+.login .container, .signup .container, .update-book .container, .new-book .container {
   width: 600px;
   margin: 0 50px 50px;
 }
@@ -172,13 +168,21 @@ form textarea {
   min-height: 400px;
 }
 
+.field {
+  margin: 4px;
+}
+
+.action {
+  margin: 4px;
+}
+
 /**********    
   MEDIA QUERIES    
 **********/
-/*
+
 @media screen and (max-width: 520px) {
   /*    HEADER    */
-  /*
+
   .header {
     height: 180px;
   }
@@ -200,9 +204,9 @@ form textarea {
     min-width: 45px;
   }
 
-  /*    ARTICLES    */
-  /*
-  .article, .login .container, .signup .container, .update-article .container {
+  /*    book    */
+
+  .book, .login .container, .signup .container, .update-book .container, .new-book .container {
     margin: 0 30px 50px;
     width: 340px;
   }

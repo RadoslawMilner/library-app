@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   
   before_action :load_book, except: [:index, :new, :create]
   before_action :require_user, except: [:index]
+  before_action :require_admin, only: [:show, :create, :edit, :update, :destroy]
   
   def index
     @books = Book.all

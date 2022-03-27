@@ -1,0 +1,17 @@
+<div class="book">
+
+  <div class="container">
+  
+    <h2><%= @book.name %></h2>
+    <p class="author">by <%= @book.author %></p>
+    <p class="book_content"><%= @book.release_date %></p>
+
+    <% if current_user && current_user.admin? %>
+    
+      <p><%= link_to "Edit details about book", edit_book_path(@book) %></p>
+      <p><%= link_to "Delete this book from index", book_path(@book), turbo_method: "delete" %></p>
+
+    <% end %>
+
+  </div>
+</div>
