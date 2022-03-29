@@ -1,6 +1,6 @@
     <h2><%= @book.name %></h2>
-    <p class="author">by <%= @book.author %></p>
-    <p class="book_content"><%= @book.release_date %></p>
+    <p><%= @book.author %></p>
+    <p><%= @book.release_date %></p>
 
     <% if current_user && current_user.admin? %>
     

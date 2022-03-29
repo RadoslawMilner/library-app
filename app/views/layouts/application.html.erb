@@ -12,7 +12,7 @@
 
   <body>
     <!-- NAVMENU -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1">
       <div class="container-fluid">
         <a class="navbar-brand"><%= link_to "Vade Mecum Bibliotheca", root_path %></a>
 
@@ -51,23 +51,77 @@
             <% end %>
             
           </ul>
-        </div>        
+        </div>
       </div>
     </nav>
-
+<!-- I don't know how to make default overlay search form on image
+      This only has a place when the view is mobile - very narrow
+      Besides that, I want to make search transparent, about 50% -->
+      
     <!-- SHOWCASE -->
-    <section class="bg-dark text-light p-5 text-center">
+    <section class="card bg-dark text-light p-5 text-center">
       <div class="container">
-        <div>
-          <%= search_form_for @q do |form| %>
-            <%= form.search_field :name_or_author_or_release_date_or_book_id_cont, :placeholder => "Search for:" %>
-            <%= form.submit "Search your book" %>
-          <% end %>
+        <img class="card-img-fluid rounded mx-auto w-50 d-sm-block" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F12480%2F0*D20V-5QYOpFdrFWi&f=1&nofb=1" alt="reader">
+        <div class="card-img-overlay d-sm-flex align-items-center justify-content-between">
+          <div>
+            <div class="card-title"><%= search_form_for @q do |form| %></div>
+              <p class="card-text lead my-2"><%= form.search_field :name_or_author_or_release_date_or_book_id_cont, :placeholder => "Type title, author, date..." %></p>
+              <button class="card-text btn btn-primary btn-lg"><%= form.submit "Search" %></button>
+            <% end %>
+          </div>
         </div>
       </div>
     </section>
 
+    <section id="bgimage">
+
     <%= yield %>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    </section>
+
+    <!-- CONTACT & MAP -->
+    <section class="p-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md">
+            <h2 class="text-center mb-4">Contact Info</h2>
+            <ul class="list-group list-group-flush lead">
+              <li class="list-group-item">
+                <span class="fw-bold"> Main Location: </span> 50 Main street Simcity UN
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold"> Bibliotheca Phone: </span> (777) 777-7777
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold"> Secretary Phone: </span> (777) 747-7777
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold"> Bibliotheca Email: </span> vade.mecum@email.com
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <img class="img-fluid rounded mx-auto w-90 d-sm-block" src="https://i0.wp.com/www.cssscript.com/wp-content/uploads/2018/03/Simple-Location-Picker.png?fit=561%2C421&ssl=1" alt="map location">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+      <div class="container">
+        <p class="lead">Copyright &copy; <%= Date.today.year %> Vade Mecum Bibliotheca </p> 
+
+        <a href="#" class="position-absolute bottom-0 end-0 p-5">
+          <i class="bi bi-arrow-up-circle h1"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

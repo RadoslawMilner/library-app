@@ -5,8 +5,9 @@ class BooksController < ApplicationController
   before_action :require_admin, only: [:create, :edit, :update, :destroy]
   
   def index
+    @books = Book.all
     @q = Book.ransack(params[:q])
-    @books = @q.result(distinct: false)
+    @books = @q.result(distinct: true)
   end
 
   def show
