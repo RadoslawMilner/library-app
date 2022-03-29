@@ -2,44 +2,72 @@
 <html>
   <head>
     <title>LibraryApp</title>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+    <!-- NAVMENU -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand"><%= link_to "Vade Mecum Bibliotheca", root_path %></a>
 
-    <div class="header">
-      <h1> Welcome in Vade Mecum Bibliotheca </h1>
-      <div class="container">
-        <h2><%= link_to "Main", root_path %></h2>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggler="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="nav">
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+
+<!-- I DON'T HAVE ANY IDEA HOW to unwrap this button and whole navbar - the button shows off, but it does not rolling down -->
+
+            <% if current_user %>
+
+              <li class="nav-item">    
+                <a class="nav-link"><%= current_user.email %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "Log Out", logout_path, data: { turbo: false } %></a>
+              </li>
+
+            <% else %>
+
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "Login ", 'login' %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "Sign up ", 'signup' %></a>
+              </li>
           
-          <% if current_user %>
+            <% end %>
+            
+          </ul>
+        </div>        
+      </div>
+    </nav>
 
-           <ul>
-            <li><%= current_user.email %></li>
-            <li><%= button_to "Log Out", destroy_user_session_path, method: :delete %></li>
-           </ul>
-
-          <% else %>
-
-           <ul>
-             <li><%= link_to "Login", 'login' %></li>
-             <li><%= link_to "Signup", 'signup' %></li>
-           </ul>
-           
+    <!-- SHOWCASE -->
+    <section class="bg-dark text-light p-5 text-center">
+      <div class="container">
+        <div>
+          <%= search_form_for @q do |form| %>
+            <%= form.search_field :name_or_author_or_release_date_or_book_id_cont, :placeholder => "Search for:" %>
+            <%= form.submit "Search your book" %>
           <% end %>
         </div>
       </div>
-    </div>
+    </section>
 
     <%= yield %>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

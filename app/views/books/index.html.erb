@@ -1,26 +1,19 @@
-<div class="book">
-  <h2>Below is a list of all available books</h2>
-  
-  <div class="container">
-
+<h2>Below is a list of all our available books</h2>
+  <table>
     <% @books.each do |book| %>
-
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Release date</th>
-        <th>Book's ID</th>
-      </tr>
-      <tr>
-        <td><%= link_to "#{book.name}", book %></td>
-        <td><%= link_to book.author, book %></td>
-        <td><%= link_to book.release_date, book %></td>
-        <td><%= link_to book.book_id, book %></td>
-      </tr>
-    </table>
-
+    <tr>
+      <th> Title </th>
+      <th> Author </th>
+      <th> Release date </th>
+      <th> Book's ID </th>
+      <th> Details and rent </th>
+    </tr>
+    <tr>
+      <td><%= book.name %></td>
+      <td><%= book.author %></td>
+      <td><%= book.release_date %></td>
+      <td><%= book.book_id %></td>
+      <td><%= button_to "Read more", book %>
+    </tr>
     <% end %>
-
-  </div>
-</div>
+  </table>

@@ -1,7 +1,3 @@
-<div class="book">
-
-  <div class="container">
-  
     <h2><%= @book.name %></h2>
     <p class="author">by <%= @book.author %></p>
     <p class="book_content"><%= @book.release_date %></p>
@@ -12,6 +8,4 @@
       <p><%= link_to "Delete this book from index", book_path(@book), turbo_method: "delete" %></p>
 
     <% end %>
-
-  </div>
-</div>
+    
