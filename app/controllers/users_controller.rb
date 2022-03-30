@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create 
     @user = User.new(user_params)
 
-    if @user.save 
+    if @user.save
       session[:user_id] = @user.id 
       redirect_to '/' 
     else 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
 
-    redirect_to books_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private

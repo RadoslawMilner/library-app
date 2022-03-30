@@ -21,7 +21,7 @@
           <td><%= book.author %></td>
           <td><%= book.release_date %></td>
           <td><%= book.book_id %></td>
-          <td><button class="btn btn-primary btn"><%= button_to "Read more", book %></button></td>
+          <td><button class="btn btn-primary btn"><%= link_to "Read more", book %></button></td>
         </tr>
         <% end %>
       </tbody>

@@ -14,7 +14,7 @@
     <!-- NAVMENU -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1">
       <div class="container-fluid">
-        <a class="navbar-brand"><%= link_to "Vade Mecum Bibliotheca", root_path %></a>
+        <a class="navbar-brand color-light"><%= link_to "Vade Mecum Bibliotheca", root_path %></a>
 
         <button
           class="navbar-toggler"
@@ -33,7 +33,7 @@
             <% if current_user %>
 
               <li class="nav-item">    
-                <a class="nav-link"><%= current_user.email %></a>
+                <a class="nav-link"><%= link_to current_user.email, current_user %></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"><%= link_to "Log Out", logout_path, data: { turbo: false } %></a>
@@ -62,22 +62,34 @@
     <section class="card bg-dark text-light p-5 text-center">
       <div class="container">
         <img class="card-img-fluid rounded mx-auto w-50 d-sm-block" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F12480%2F0*D20V-5QYOpFdrFWi&f=1&nofb=1" alt="reader">
-        <div class="card-img-overlay d-sm-flex align-items-center justify-content-between">
+        <div class="card-img-overlay d-sm-flex align-items-center justify-content-center">
           <div>
-            <div class="card-title"><%= search_form_for @q do |form| %></div>
-              <p class="card-text lead my-2"><%= form.search_field :name_or_author_or_release_date_or_book_id_cont, :placeholder => "Type title, author, date..." %></p>
-              <button class="card-text btn btn-primary btn-lg"><%= form.submit "Search" %></button>
+            <div class="card-title opacity-50"><%= search_form_for @q do |f| %></div>
+              <p class="card-text lead my-2 opacity-50"><%= f.search_field :name_or_author_or_release_date_or_book_id_cont, :placeholder => "Type title, author, date..." %></p>
+              <button class="card-text btn btn-primary btn-lg opacity-50"><%= f.submit "Search" %></button>
             <% end %>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="bgimage">
 
-    <%= yield %>
+    <!-- Background image -->
+    <!-- tutaj do nauki jest współpraca bootstrapa z railsami
+          Chcę czytelny tekst wszędzie, na backgroundzie -->
+    <div class="text-primary">
+      <div class="bg-image" 
+      style="
+        background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F08%2FHD-Library-Wallpaper.jpg&f=1&nofb=1');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      "
 
-    </section>
+      <%= yield %>
+
+      ></div>
+    </div>
+    <!-- END Background image -->
 
     <!-- CONTACT & MAP -->
     <section class="p-5">
