@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Vade Mecum Bibliotheca
 
-Things you may want to cover:
+It is my second study project, to create basic fuctional library, with index of books,
+possibility to sign up and login users. Moreover enabling users to borrowing books.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+* Ruby version 3.0.1
+* System dependencies 20.04
+* Database creation 23.03.2022
+* Database initialization 23.03.2022
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
